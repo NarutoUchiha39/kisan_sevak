@@ -1,11 +1,10 @@
 "use client"
+import Bootstraphome from '@/components/Bootstraphome'
 import {useRouter } from 'next/navigation'
 import React from 'react'
-import Requests from '@/components/Requests'
-import { useGlobalContext } from '../Context/store'
-import { useEffect } from 'react'
-function Page() {
-  const router = useRouter()
+
+function page() {
+  // const router = useRouter()
   // const [Error,setErrors] = useState({
   //   notification:null,message:null
   // })
@@ -13,54 +12,55 @@ function Page() {
   // let[status,setStatus] = useState({status:"All"})
 
 
-  const {status,setStatus,data,setData} = useGlobalContext()
+  // const {status,setStatus,data,setData} = useGlobalContext()
 
-  useEffect(()=>{
-      async function fetchIssues(){
-          let res =  await fetch(`http://localhost:3000/getIssues/${status.status}`,{
-              headers:{"Content-Type":"application/json"},
-              method:"POST",
-              body:JSON.stringify({
-                  email:sessionStorage.email
-              })
-          }).then((res)=>{
-              console.log(res)
-              return res.json()
-          })
+  // useEffect(()=>{
+  //     async function fetchIssues(){
+  //         let res =  await fetch(`http://localhost:3000/getIssues/${status.status}`,{
+  //             headers:{"Content-Type":"application/json"},
+  //             method:"POST",
+  //             body:JSON.stringify({
+  //                 email:sessionStorage.email
+  //             })
+  //         }).then((res)=>{
+  //             console.log(res)
+  //             return res.json()
+  //         })
 
-          console.log(res)
+  //         console.log(res)
 
-          let id = []
-          let name= []
-          let photo = []
-          let problem_description = []
-          let id_problem = []
+  //         let id = []
+  //         let name= []
+  //         let photo = []
+  //         let problem_description = []
+  //         let id_problem = []
 
-          console.log(res.result)
-          res.result.forEach(element => {
-                  id.push(element.farmer_id)
-                  name.push(element.farmer_name)
-                  photo.push(element.photo)
-                  problem_description.push(element.problem_description)
-                  id_problem.push(element._id)
-          });
+  //         console.log(res.result)
+  //         res.result.forEach(element => {
+  //                 id.push(element.farmer_id)
+  //                 name.push(element.farmer_name)
+  //                 photo.push(element.photo)
+  //                 problem_description.push(element.problem_description)
+  //                 id_problem.push(element._id)
+  //         });
           
-          setData((state)=>({
-                  ...state, farmer_name:name,photo:photo,problem_description:problem_description,farmer_id:id,id_problem:id_problem
-      }))
+  //         setData((state)=>({
+  //                 ...state, farmer_name:name,photo:photo,problem_description:problem_description,farmer_id:id,id_problem:id_problem
+  //     }))
 
-      console.log(data)
+  //     console.log(data)
           
-      }
+  //     }
 
-      fetchIssues();
-  },[status])
+  //     fetchIssues();
+  // },[status])
   return (
     <div>
+        <Bootstraphome/>
       {/* {sessionStorage.getItem("authenticated")}
          {sessionStorage.authenticated?<Requests></Requests>:router.push('/')} */}
     </div>
   )
 }
 
-export default Page
+export default page
