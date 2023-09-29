@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Gudea&family=Poller+One&display=swap");
+
+.mainbody-requests{
+    height: 75%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.mainbody-requests::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+.mainbody-requests::-webkit-scrollbar-thumb {
+    background-color: #174416; 
+    border-radius: 1vh; 
+}
+
+.mainbody-requests::-webkit-scrollbar-thumb:hover {
+    background-color: #166d16; 
+}
+
+.mainbody_requests_container h1{
+    text-align: center;
+    font-family: 'Poller One', cursive;
+    color: rgb(230, 230, 230);
+}
+
+.requests_row{
+    height: 8vh;
+    width: 100%;
+}
+
+.requests_row:hover{
+    background-color: #06130668;
+}
+
+.mainbody_requests_container{
+    font-family: 'Gudea', sans-serif;
+    background-color: rgba(31, 80, 11, 0.749);
+    border-radius: 5vh;
+    width: 75vw;
+    position: absolute;
+    left: 23%;
+    margin-top: 4vh;
+    height: 80vh;
+}
+
+.mainbody-requests-hr{
+    background-color: #ffffff4c;
+    height: 0.2vh;
+    width: 100%;
+}
+
+.requests_row{
+    padding-left: 2vw;
+    padding-right: 2vw;
+    color: rgb(31, 30, 30);
+}
+
+.description_short{
+    position: absolute;
+    left: 20%;
+    right: 10%;
+    transform: translateY(-30%);
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgb(230, 230, 230);
+}
+
+.names{
+    color: white;
+    transform: translateY(70%);
+}
+
+a{
+    text-decoration: none;
+}

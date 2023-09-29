@@ -1,0 +1,27 @@
+.NavBar
+{
+    width: 100%;
+    background-color: #F6F6E9;
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+}
+
+body{
+    background-color: #F6F6E9;
+}
+
+.NavBar h3{
+    transform: translateY(15%);
+    color: #166d16;
+    font-size: 3vh;
+}
+
+.NavBar h3:hover{
+    color:rgb(19, 172, 19);
+}
+
+.Requests{
+    background-image: url('/kk.png');
+    background-size: 'cover';
+}

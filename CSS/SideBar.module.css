@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Gudea&family=Poller+One&display=swap");
+
+.component
+{
+    color: black;
+    background-color: red;
+}
+
+.filterrequests{
+    border-top-right-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+    margin-left: 0.5vw;
+    height: 55vh;
+    width: 18vw;
+    position: absolute;
+    left: 0;
+}
+
+.borderhr{
+    background-color: #174416;
+    width: 80%;
+    margin: auto;
+    height: 0.25vh;
+}
+
+.middlehr{
+    width: 60%;
+    height: 0.25vh;
+    background-color: #174416;
+    margin: auto;
+}
+
+.filterrequests h5{
+    font-family: 'Gudea', sans-serif;
+    text-align: center;
+    margin: 3vh;
+    text-decoration: none;
+}
+
+.filterrequests h3{
+    font-family: 'Gudea', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.filterrequests h5:hover{
+    color: rgb(12, 71, 12);
+}
+
+.filterrequests_container{
+    transform: translateY(13%);
+}
+
+#Link{
+    text-decoration: none;
+    color: black;
+}
