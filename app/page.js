@@ -1,95 +1,96 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+import React from 'react'
+import styles from '../CSS/Login.module.css'
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
-export default function Home() {
+function LoginPage() {
+    const router = useRouter()
+    function HandleSubmit(event)
+    {
+        event.preventDefault();
+        let email = event.target.elements.email.value;
+        let password = event.target.elements.password.value;
+        fetch('/api/auth/login',{
+            method:'POST',
+            headers:{'Content-Type':"application/json"},
+            body:JSON.stringify({
+                "email":email,
+                "password":password
+            })
+        }).then((response)=>{
+            return(response.json())
+        }).then((res)=>{
+            if(res.status == "success"){
+                sessionStorage.setItem("authenticated",true)
+                sessionStorage.setItem("name",res.name),
+                sessionStorage.setItem("email",res.email)
+                router.push('/Home')
+            }
+
+            if(res.status == "error")
+            {
+                props.errorFunction({notification:"error",message:res.message})
+            }
+        })  
+    }
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    
+    <div>
+        <form onSubmit={HandleSubmit} id={styles.form}>
+            <div className={styles.LoginPage}>
+                <div className={styles.content}>
+                    <div className={styles.title}>
+                        <div className={styles.header}>
+                            Welcome Back
+                        </div>
+
+                        <div className={styles.description}>
+                            Welcome back! Please enter your details
+                        </div>
+                    </div>
+
+                    <div className={styles.details}>
+                        <div className={styles.email +" "+styles.input}>
+                                <div className={styles.email_header}>
+                                    Email
+                                </div>
+                                <div className={styles.email_input}>
+                                    <input type="email" name="email" id={styles.email} placeholder='JohnDoe@gmail.com'/>
+                                </div>
+                                
+                        </div>
+
+                        <div className={styles.password+" "+styles.input}>
+                            <div className={styles.password_header}>
+                                Password
+                            </div>
+
+                            <div className={styles.password_input}>
+                                <input type="password" name="password" id={styles.password} placeholder='********'/>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div className="submit" style={{marginTop:'-5%'}}>
+                        <input type="submit" value="Sign Up" id={styles.Submit}/>
+                    </div>
+
+                    <div className="Register" style={{fontSize:'15px',color:'grey',marginTop:'20px',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column'}}>
+                        Want to help farmers? 
+                        <div className="register" style={{marginTop:'10px'}}>
+                        <Link href={'/Register'}>Register</Link> 
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   )
 }
+
+export default LoginPage
