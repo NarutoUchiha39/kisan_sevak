@@ -57,8 +57,8 @@ function page() {
   },[status])
   return (
     <div>
-      {sessionStorage.getItem("authenticated")}
-         {sessionStorage.authenticated?<Requests></Requests>:router.push('/')}
+      {/* {sessionStorage.getItem("authenticated")}
+         {sessionStorage.authenticated?<Requests></Requests>:router.push('/')} */}
     </div>
   )
 }
