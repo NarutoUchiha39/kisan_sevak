@@ -55,7 +55,7 @@ function Register() {
         })
         
     }
-    const {steps,next,goTo,previous,step,Element,isFirst,isLast} = MultiStepHook([<InputDetails {...data} Update_Fields={Update_Fields}/>,<Experience {...data} Update_Fields={Update_Fields}/>]);
+    const {steps,next,goTo,previous,step,Element,isFirst,isLast} = MultiStepHook([<InputDetails {...data} Update_Fields={Update_Fields} key={0}/>,<Experience {...data} Update_Fields={Update_Fields} key={1}/>]);
   return (
     
     <div>   
