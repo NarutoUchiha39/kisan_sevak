@@ -1,23 +1,23 @@
 "use client"
 import {useRouter } from 'next/navigation'
 import React from 'react'
-import Requests from '@/components/Requests'
 import { useGlobalContext } from '@/app/Context/store'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
+import Requests from './Requests'
 function Bootstraphome() {
       const router = useRouter()
-  const [Error,setErrors] = useState({
+      const [Error,setErrors] = useState({
     notification:null,message:null
   })
  
 
 
-  const {status,setStatus,data,setData} = useGlobalContext()
+  const {status,data,setData} = useGlobalContext()
 
 
   useEffect(()=>{
       async function fetchIssues(){
-          let res =  await fetch(`http://localhost:3000/getIssues/${status.status}`,{
+          let res =  await fetch(`api/Reply/${status.status}`,{
               headers:{"Content-Type":"application/json"},
               method:"POST",
               body:JSON.stringify({
@@ -56,7 +56,9 @@ function Bootstraphome() {
       fetchIssues();
   },[status])
   return (
-    <div>Bootstraphome</div>
+    <>
+    <Requests></Requests>
+    </>
   )
 }
 

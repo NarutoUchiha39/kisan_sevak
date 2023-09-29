@@ -1,9 +1,7 @@
 "use client"
 import {useRouter } from 'next/navigation'
 import React from 'react'
-import Requests from '@/components/Requests'
-import { useGlobalContext } from '../Context/store'
-import { useEffect } from 'react'
+import Bootstraphome from '@/components/Bootstraphome'
 function Page() {
   const router = useRouter()
   // const [Error,setErrors] = useState({
@@ -57,8 +55,7 @@ function Page() {
   // },[status])
   return (
     <div>
-      {/* {sessionStorage.getItem("authenticated")}
-         {sessionStorage.authenticated?<Requests></Requests>:router.push('/')} */}
+     <Bootstraphome/>
     </div>
   )
 }

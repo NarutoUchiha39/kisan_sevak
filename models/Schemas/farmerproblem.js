@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
-const problem = mongoose.model(
-    'farmerproblem',new mongoose.Schema({
+import mongoose, { model,models } from "mongoose"
+const problem = new mongoose.Schema({
         problem_description:String,
         farmer_id:String,
         photo:String,
@@ -9,8 +8,5 @@ const problem = mongoose.model(
         assigned:String,
         status:String
     })
-)
 
-module.exports = {
-    problem:problem
-}
+export default models.farmerproblem || model('farmerproblem',problem)

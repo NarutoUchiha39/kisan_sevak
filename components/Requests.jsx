@@ -1,21 +1,25 @@
 import Link from 'next/link'
+import styles from '../CSS/Requests.module.css'
+import { useGlobalContext } from '@/app/Context/store'
 
-export default function Requests(data) {
+export default function Requests() {
+    const {status,data,setData} = useGlobalContext()
+
  
     return (
         
-         <div className="mainbody_requests_container">
+         <div className={styles.mainbody_requests_container}>
 
             <h1>Help A Farmer</h1>
-            <div className = "mainbody-requests">
+            <div className = {styles.mainbody_requests}>
            {
-            data.data.farmer_name.map((element,i)=>(
+            data.farmer_name.map((element,i)=>(
                     <div className="" key={i}>
-                        <div className = "mainbody-requests-hr"></div>
-                        <Link href = {`/Reply/${data.data.id_problem[i]}`}>
-                            <div className="requests_row">
+                        <div className = {styles.mainbody_requests_hr}></div>
+                        <Link href = {`/Reply/${data.id_problem[i]}`} id='a'>
+                            <div className={styles.requests_row}>
                                 <div className = "names">{element} </div>
-                                <div className="description_short">{data.data.problem_description[i]}</div>
+                                <div className="description_short">{data.problem_description[i]}</div>
                             </div>      
                         </Link>   
                     </div>              
@@ -24,7 +28,7 @@ export default function Requests(data) {
         )
             }
 
-                <div className = "mainbody-requests-hr"></div>  
+                <div className = {styles.mainbody_requests_hr}></div>  
             </div>
         </div>
       
