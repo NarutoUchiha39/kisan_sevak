@@ -10,7 +10,7 @@ export default function Requests(data) {
             <div className = "mainbody-requests">
            {
             data.data.farmer_name.map((element,i)=>(
-                    <div className="">
+                    <div className="" key={i}>
                         <div className = "mainbody-requests-hr"></div>
                         <Link href = {`/Reply/${data.data.id_problem[i]}`}>
                             <div className="requests_row">

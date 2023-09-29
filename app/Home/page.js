@@ -1,10 +1,11 @@
 "use client"
-import Bootstraphome from '@/components/Bootstraphome'
 import {useRouter } from 'next/navigation'
 import React from 'react'
-
-function page() {
-  // const router = useRouter()
+import Requests from '@/components/Requests'
+import { useGlobalContext } from '../Context/store'
+import { useEffect } from 'react'
+function Page() {
+  const router = useRouter()
   // const [Error,setErrors] = useState({
   //   notification:null,message:null
   // })
@@ -56,11 +57,10 @@ function page() {
   // },[status])
   return (
     <div>
-        <Bootstraphome/>
       {/* {sessionStorage.getItem("authenticated")}
          {sessionStorage.authenticated?<Requests></Requests>:router.push('/')} */}
     </div>
   )
 }
 
-export default page
+export default Page
