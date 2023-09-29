@@ -4,7 +4,7 @@ import React from 'react'
 import Requests from '@/components/Requests'
 import { useGlobalContext } from '../Context/store'
 import { useEffect } from 'react'
-function page() {
+function Page() {
   const router = useRouter()
   // const [Error,setErrors] = useState({
   //   notification:null,message:null
@@ -63,4 +63,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
