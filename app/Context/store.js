@@ -5,15 +5,18 @@ const GlobalContext = createContext(
         data:'',
         setData:()=>[],
         status:'All',
-        setStatus:()=>''
+        setStatus:()=>'',
+        Spinner:false,
+        setSpinner:()=>''
     }
 )
 export const GlobalContextProvider = ({children}) =>{
     const [data,setData] = useState({id_problem:[],problem_description:[],farmer_name:[],photo:[],farmer_id:[]})
     const [status,setStatus] = useState({status:"All"})
+    const [Spinner,setSpinner] = useState(false)
     
     return (
-        <GlobalContext.Provider value={{data,setData,status,setStatus}}>
+        <GlobalContext.Provider value={{data,setData,status,setStatus,setSpinner}}>
             {children}
         </GlobalContext.Provider>
     )

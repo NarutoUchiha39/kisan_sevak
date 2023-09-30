@@ -7,7 +7,6 @@ function Sidebar() {
   function change(event){
     let classes = event.target.classList.value
     setStatus({status:`${classes}`})
-    console.log(props.status)
         }
 return (
         
@@ -20,11 +19,11 @@ return (
                     <div className={styles.filterrequests_container}>
                             <h3>View Requests</h3>
                             <div className = {styles.borderhr}></div>
-                            <a onClick={change} id="Link"><h5 className='All'>All</h5></a>
+                            <a onClick={change} id={styles.Link}><h5 className='All'>All</h5></a>
                             <div className = {styles.middlehr} ></div>
-                            <a onClick={change} id="Link"><h5 className='Pending'>Pending</h5></a>
+                            <a onClick={change} id={styles.Link}><h5 className='Pending'>Pending</h5></a>
                             <div className = {styles.middlehr}></div>
-                            <a onClick={change} id="Link"><h5 className='Completed'>Completed</h5></a>
+                            <a onClick={change} id={styles.Link}><h5 className='Completed'>Completed</h5></a>
                             <div className = {styles.borderhr}></div>
                     </div>
             </div>

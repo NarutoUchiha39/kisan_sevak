@@ -3,14 +3,17 @@ import React from 'react'
 import styles from '../CSS/Login.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
-
+import { useGlobalContext } from './Context/store';
+import Spiner from '@/components/Spiner';
 function LoginPage() {
+    const {setSpinner} = useGlobalContext()
     const router = useRouter()
     function HandleSubmit(event)
     {
         event.preventDefault();
         let email = event.target.elements.email.value;
         let password = event.target.elements.password.value;
+        setSpinner(true)
         fetch('/api/auth/login',{
             method:'POST',
             headers:{'Content-Type':"application/json"},
@@ -21,6 +24,7 @@ function LoginPage() {
         }).then((response)=>{
             return(response.json())
         }).then((res)=>{
+            setSpinner(false)
             if(res.status == "success"){
                 sessionStorage.setItem("authenticated",true)
                 sessionStorage.setItem("name",res.name),
@@ -37,6 +41,7 @@ function LoginPage() {
   return (
     
     <div>
+        <Spiner/>
         <form onSubmit={HandleSubmit} id={styles.form}>
             <div className={styles.LoginPage}>
                 <div className={styles.content}>

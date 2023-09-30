@@ -14,10 +14,10 @@ function Bootstraphome() {
 
   const {status,data,setData} = useGlobalContext()
 
-
+  console.log(status)
   useEffect(()=>{
       async function fetchIssues(){
-          let res =  await fetch(`api/Reply/${status.status}`,{
+          let res =  await fetch(`api/getIssues/${status.status}`,{
               headers:{"Content-Type":"application/json"},
               method:"POST",
               body:JSON.stringify({

@@ -16,10 +16,10 @@ export default function Requests() {
             data.farmer_name.map((element,i)=>(
                     <div className="" key={i}>
                         <div className = {styles.mainbody_requests_hr}></div>
-                        <Link href = {`/Reply/${data.id_problem[i]}`} id='a'>
+                        <Link href = {`/Reply/${data.id_problem[i]}`} id={styles.a}>
                             <div className={styles.requests_row}>
-                                <div className = "names">{element} </div>
-                                <div className="description_short">{data.problem_description[i]}</div>
+                                <div className = {styles.names}>{element} </div>
+                                <div className={styles.description_short}>{data.problem_description[i]}</div>
                             </div>      
                         </Link>   
                     </div>              
