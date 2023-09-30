@@ -11,7 +11,9 @@ function Spinner() {
         alignItems:"center",
         width:"100%",
         height:"100vh",
-        justifyContent:"center"
+        justifyContent:"center",
+        opacity:1,
+        zIndex:1000
     }
 
   return (

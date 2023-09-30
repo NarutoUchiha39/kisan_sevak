@@ -49,7 +49,7 @@ function Bootstrapreply() {
   },[id])
     return (
       <>
-      {/* <Spinner/> */}
+      <Spinner/>
       <div className={styles.problem_details_container} >
               
           <div className={styles.problem_details_left}>
