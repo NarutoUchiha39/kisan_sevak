@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
+import styles from '@/CSS/NavBar.module.css'
 function Navbar() {
     async function logout(){
         const res = fetch(
@@ -16,7 +17,7 @@ function Navbar() {
       }
       return (
         <>
-            <div className="NavBar">
+            <div className={styles.NavBar}>
               <Link href = {"/"}>
                 <h3 style={{position: 'absolute', left: '10%'}}>Home</h3>
               </Link>

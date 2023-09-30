@@ -4,6 +4,7 @@ import React from 'react'
 import { useGlobalContext } from '@/app/Context/store'
 import { useEffect,useState } from 'react'
 import Requests from './Requests'
+import Spinner from './Spinner'
 function Bootstraphome() {
       const router = useRouter()
       const [Error,setErrors] = useState({
@@ -12,11 +13,13 @@ function Bootstraphome() {
  
 
 
-  const {status,data,setData} = useGlobalContext()
-
+  const {status,data,setData,setSpinner,setColor} = useGlobalContext()
+  
   console.log(status)
   useEffect(()=>{
       async function fetchIssues(){
+        
+        setSpinner(true)
           let res =  await fetch(`api/getIssues/${status.status}`,{
               headers:{"Content-Type":"application/json"},
               method:"POST",
@@ -48,7 +51,7 @@ function Bootstraphome() {
           setData((state)=>({
                   ...state, farmer_name:name,photo:photo,problem_description:problem_description,farmer_id:id,id_problem:id_problem
       }))
-
+      setSpinner(false)
       console.log(data)
           
       }
@@ -57,6 +60,7 @@ function Bootstraphome() {
   },[status])
   return (
     <>
+    <Spinner/>
     <Requests></Requests>
     </>
   )

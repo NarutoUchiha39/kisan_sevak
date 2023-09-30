@@ -4,6 +4,8 @@ import styles from '../../CSS/Login.module.css'
 import MultiStepHook from '../CustomHooks/MultiStepHook';
 import InputDetails from '../../components/InputDetails';
 import Experience from '../../components/Experience';
+import { useGlobalContext } from '../Context/store';
+import Spinner from '@/components/Spinner';
 const INITIAL_DATA = {
     name:"",
     email:"",
@@ -18,6 +20,7 @@ const INITIAL_DATA = {
 
 function Register() {
     const [data,setData] = useState(INITIAL_DATA);
+    const{setSpinner} = useGlobalContext()
     function Update_Fields(updatedFields){
         setData(prev=>{
             return {...prev,...updatedFields}
@@ -35,7 +38,7 @@ function Register() {
             data.name,
             data.link
         )
-
+        setSpinner(true)
         fetch('/api/auth/Register',{
             headers:{"Content-Type":'application/json'},
             body:
@@ -51,6 +54,7 @@ function Register() {
         }).then(result=>{
             return result.json()
         }).then(result=>{
+            setSpinner(false)
             console.log(result)
         })
         
@@ -58,7 +62,8 @@ function Register() {
     const {steps,next,goTo,previous,step,Element,isFirst,isLast} = MultiStepHook([<InputDetails {...data} Update_Fields={Update_Fields} key={0}/>,<Experience {...data} Update_Fields={Update_Fields} key={1}/>]);
   return (
     
-    <div>   
+    <div>
+        <Spinner/>   
         <div  id={styles.form}>
         <div className={styles.LoginPage}>
             <div className={styles.content}>

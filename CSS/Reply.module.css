@@ -1,0 +1,120 @@
+
+.problem_details_right{
+  background-color: #cbcbcb9e;
+  border-radius: 1vh;
+  border-style: solid;
+  border-width: 0.3vh;
+  border-color: rgba(31, 80, 11, 0.749);
+  width: 70vw;
+  height: 73vh;
+  position: absolute;
+  margin: auto;
+  margin-top: 2vh;
+  transform: translateX(35%);
+  padding-left: 5vh;
+  padding-top: 8vh;
+  padding-bottom: 2vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  color: black;
+  font-family: 'Gudea', sans-serif;
+}
+
+
+.problem_details_right::-webkit-scrollbar-thumb {
+  background-color: rgb(91, 91, 91); 
+  border-radius: 1vh; 
+  }
+
+  .problem_details_right::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(114, 114, 114); 
+  }
+
+.problem_details_right::-webkit-scrollbar-thumb:hover {
+background-color: #166d16; 
+}
+
+.problem_details_container{
+  display: flex;
+  
+}
+
+.problem_details_left{
+  font-family: 'Gudea', sans-serif;
+  margin-top: 25vh;
+  font-size: 2.5vh;
+  width: 20vw;
+  height: 40vh;
+  border-top-right-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+  border-style: solid;
+  border-width: 0.2vh;
+  background-color: #78c42d9d;
+}
+
+.problem_details_right_hr{
+  background-color: rgb(10, 31, 9);
+  width: 40%;
+  padding: 0;
+  margin-left: 3vw;
+  height: 0.1vh;
+  margin-bottom: 2vh;
+  
+}
+
+.problem_details_right h3{
+margin: 0;
+margin-left: 3vw;
+margin-bottom: 1vh;
+color: rgb(10, 31, 9);
+}
+
+
+.reply_button{
+  border-radius: 3vh;
+  border-width: 0.1vh;
+  height: 7vh;
+  width: 15vh;
+  padding: 2vh;
+  background-color: #026700;
+  color: white;
+  position: absolute;
+  bottom: 28%;
+  left: 6%;
+}
+
+.reply_button:hover{
+background-color: #022301;
+}
+
+
+.farmer_name{
+  transform: translateX(5%);
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 3vh;
+  color: black;
+  }
+
+  .sent_time{
+  transform: translateX(5%);
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 7vh;
+  color: #6c6b6b;
+  }
+
+
+.disease_img{
+margin-left: 3vw;
+border-style: solid;
+border-width: 0.1vh;
+margin-bottom: 5vh;
+}
+
+.problem_details_right p{
+margin: 0;
+margin-bottom: 5vh;
+width: 90%;
+margin-left: 3vw;
+}

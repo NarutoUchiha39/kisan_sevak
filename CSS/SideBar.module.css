@@ -45,6 +45,7 @@
 
 .filterrequests h5:hover{
     color: rgb(12, 71, 12);
+    cursor: pointer;
 }
 
 .filterrequests_container{
