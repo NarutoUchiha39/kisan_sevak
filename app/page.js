@@ -4,11 +4,13 @@ import styles from '../CSS/Login.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useGlobalContext } from './Context/store';
-import Spiner from '@/components/Spiner';
+import Spinner from '@/components/Spinner';
 function LoginPage() {
     const {setSpinner} = useGlobalContext()
     const router = useRouter()
-    function HandleSubmit(event)
+    
+      
+    function  HandleSubmit(event)
     {
         event.preventDefault();
         let email = event.target.elements.email.value;
@@ -23,9 +25,9 @@ function LoginPage() {
             })
         }).then((response)=>{
             return(response.json())
-        }).then((res)=>{
-            setSpinner(false)
+        }).then(async(res)=>{
             if(res.status == "success"){
+                setSpinner(false)
                 sessionStorage.setItem("authenticated",true)
                 sessionStorage.setItem("name",res.name),
                 sessionStorage.setItem("email",res.email)
@@ -41,7 +43,7 @@ function LoginPage() {
   return (
     
     <div>
-        <Spiner/>
+       <Spinner/>
         <form onSubmit={HandleSubmit} id={styles.form}>
             <div className={styles.LoginPage}>
                 <div className={styles.content}>

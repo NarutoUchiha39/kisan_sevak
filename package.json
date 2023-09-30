@@ -14,7 +14,8 @@
     "mongoose": "^7.5.3",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "eslint": "latest",
