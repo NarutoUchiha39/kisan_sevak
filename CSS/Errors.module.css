@@ -10,7 +10,9 @@
     z-index: 100;
 
 }
-
+.tp{
+    color:white;
+}
 .info {
     color: #00529B;
     background-color: #BDE5F8;
