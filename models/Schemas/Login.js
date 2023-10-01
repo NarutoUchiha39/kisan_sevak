@@ -8,5 +8,5 @@ let login = mongoose.Schema({
     })
 
 
-export default models.login || model('login',login)
+export default(models.login || model('login',login))
 

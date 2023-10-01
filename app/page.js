@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import styles from '../CSS/Login.module.css'
+import {signIn} from 'next-auth/react'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useGlobalContext } from './Context/store';
@@ -11,36 +12,53 @@ function LoginPage() {
     const router = useRouter()
     
       
-    function  HandleSubmit(event)
+    async function  HandleSubmit(event)
     {
-        event.preventDefault();
         let email = event.target.elements.email.value;
         let password = event.target.elements.password.value;
+        event.preventDefault();
         setSpinner(true)
-        fetch('/api/auth/login',{
-            method:'POST',
-            headers:{'Content-Type':"application/json"},
-            body:JSON.stringify({
-                "email":email,
-                "password":password
-            })
-        }).then((response)=>{
-            return(response.json())
-        }).then(async(res)=>{
-            if(res.status == "success"){
-                setSpinner(false)
-                sessionStorage.setItem("authenticated",true)
-                sessionStorage.setItem("name",res.name),
-                sessionStorage.setItem("email",res.email)
-                router.push('/Home')
-            }
+        const res = await signIn("credentials",
+        {
+            email,
+            password,
+            redirect:false,
+        })
 
-            if(res.status == "error")
-            {
-                setSpinner(false)
-                setError({notification:"error",message:res.message}) 
-            }
-        })  
+        setSpinner(false)
+        console.log(res)
+        if(res?.error) return setError({notification:"error",message:res.error})
+        sessionStorage.setItem("authenticated",true) 
+        // sessionStorage.setItem("name",),
+        sessionStorage.setItem("email",email)
+
+       router.push('/Home')
+
+        
+        // fetch('/api/auth/login',{
+        //     method:'POST',
+        //     headers:{'Content-Type':"application/json"},
+        //     body:JSON.stringify({
+        //         "email":email,
+        //         "password":password
+        //     })
+        // }).then((response)=>{
+        //     return(response.json())
+        // }).then(async(res)=>{
+        //     if(res.status == "success"){
+        //         setSpinner(false)
+        //         sessionStorage.setItem("authenticated",true)
+        //         sessionStorage.setItem("name",res.name),
+        //         sessionStorage.setItem("email",res.email)
+        //         router.push('/Home')
+        //     }
+
+        //     if(res.status == "error")
+        //     {
+        //         setSpinner(false)
+        //         setError({notification:"error",message:res.message}) 
+        //     }
+        // })  
     }
   return (
     

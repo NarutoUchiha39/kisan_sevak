@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 export default function Errors()
 {
-    const {Error} = useGlobalContext()
+    const {Error,setError} = useGlobalContext()
     const message = Error.notification
     useEffect(()=>{
         function handleError()
@@ -15,6 +15,7 @@ export default function Errors()
             if(element){
                 element.style.display="none"
                 element.style.transition=""
+                setError({notification:null,message:null})
             }
             
         }
