@@ -9,20 +9,21 @@ export async function POST(req,res){
 
     let email = data.email;
     let password = data.password;
-
+    console.log(password)
     const oldExpert = await login.findOne({email:email})
         if(oldExpert){
-            let result = bcrypt.compare(password,oldExpert.password)
+            console.log(oldExpert.password)
+            let result = await bcrypt.compare(password,oldExpert.password)
             if(result){
                 return NextResponse.json({status:"success",message:"User authenticated successfully",name:oldExpert.name,email:oldExpert.email},{status:200})
             }
             else{
-                return NextResponse.json({status:"error",message:"User password doesnt match !!"},{status:500})
+                return NextResponse.json({status:"error",message:"User password doesnt match "},{status:500})
             }
         }
         else{
 
-            return NextResponse.json({status:"error",message:"User already exists !!"},{status:500})
+            return NextResponse.json({status:"error",message:"User already exists "},{status:500})
             
         }
     

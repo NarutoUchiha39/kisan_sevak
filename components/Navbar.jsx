@@ -2,18 +2,18 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from '@/CSS/NavBar.module.css'
+import { useRouter } from 'next/navigation'
 function Navbar() {
+  let router = useRouter()
     async function logout(){
-        const res = fetch(
-          'http://localhost:3000/Logout',{
-            headers:{"Content-Type":"application/json"},
-            method:"POST",
-            body:JSON.stringify({}),
-    
-          }
-        ).catch((err)=>{console.log(err)})
-    
-        window.location = '/Login'
+        sessionStorage.clear()
+        caches.keys().then((names) => {
+          names.forEach((name) => {
+              caches.delete(name);
+          });
+      });
+
+        router.push('/')
       }
       return (
         <>

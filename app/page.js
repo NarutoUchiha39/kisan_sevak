@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import { useGlobalContext } from './Context/store';
 import Spinner from '@/components/Spinner';
+import Errors from '@/components/Errors';
 function LoginPage() {
-    const {setSpinner} = useGlobalContext()
+    const {setSpinner,setError} = useGlobalContext()
     const router = useRouter()
     
       
@@ -36,7 +37,8 @@ function LoginPage() {
 
             if(res.status == "error")
             {
-                props.errorFunction({notification:"error",message:res.message})
+                setSpinner(false)
+                setError({notification:"error",message:res.message}) 
             }
         })  
     }
@@ -44,6 +46,7 @@ function LoginPage() {
     
     <div>
        <Spinner/>
+       <Errors/>
         <form onSubmit={HandleSubmit} id={styles.form}>
             <div className={styles.LoginPage}>
                 <div className={styles.content}>
