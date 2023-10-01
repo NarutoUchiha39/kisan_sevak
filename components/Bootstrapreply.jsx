@@ -9,7 +9,6 @@ import Spinner from '@/components/Spinner'
 
 function Bootstrapreply() {
     const {id} = useParams()
-    const router = useRouter()
     const {setSpinner} = useGlobalContext()
     console.log(id)
     
@@ -22,12 +21,12 @@ function Bootstrapreply() {
         sent_at:""
     })
   
-    useEffect(()=>{
+    // useEffect(()=>{
         
-      if(!sessionStorage.authenticated){
-          router.push('/')
-      }
-    })
+    //   if(!sessionStorage.authenticated){
+    //       router.push('/')
+    //   }
+    // })
   
     useEffect(()=>{
       async function fetch_problem(){
