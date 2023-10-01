@@ -20,7 +20,7 @@ export default function BootstrapwriteReply() {
     let diagnosis = document.getElementById('Diagnosis').value
     let prescription = document.getElementById('prescription').value
     console.log(id)
-    let result = await fetch(`http://localhost:3000/Replies/${id}_${sessionStorage.email}_`, 
+    let result = await fetch(`/api/sendReply/${id}_${sessionStorage.email}`, 
     {method:'POST',
     headers:{'Content-Type':"application/json"},
     body:JSON.stringify({

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const Reply = mongoose.model(
-    'Reply',new mongoose.Schema({
+const Reply = new mongoose.Schema({
         reference_id:String,
         email_id:String,
         prescription:String,
@@ -8,8 +7,7 @@ const Reply = mongoose.model(
         Replied_at:String,
         adhar_number:String,
     })
-)
 
-module.exports = {
-    Reply:Reply
-}
+
+export default mongoose.models.Reply || mongoose.model('Reply',Reply)
+
