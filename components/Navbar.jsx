@@ -3,17 +3,12 @@ import React from 'react'
 import Link from 'next/link'
 import styles from '@/CSS/NavBar.module.css'
 import { useRouter } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 function Navbar() {
   let router = useRouter()
     function logout(){
-        sessionStorage.clear()
-        sessionStorage.authenticated = false
-        caches.keys().then((names) => {
-          names.forEach((name) => {
-              caches.delete(name);
-          });
-      });
-
+       
+        signOut()
         router.push('/')
       }
       return (
