@@ -5,7 +5,9 @@ import { useGlobalContext } from '@/app/Context/store'
 import { useEffect,useState } from 'react'
 import Requests from './Requests'
 import Spinner from './Spinner'
+import { useSession } from 'next-auth/react'
 function Bootstraphome() {
+      const {data:session} = useSession()
       const router = useRouter()
       const [Error,setErrors] = useState({
     notification:null,message:null

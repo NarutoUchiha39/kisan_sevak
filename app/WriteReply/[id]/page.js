@@ -2,9 +2,6 @@ import BootstrapwriteReply from '@/components/BootstrapwriteReply'
 import React from 'react'
 
 function page() {
-  const { data: session } = useSession()
-  const router = useRouter()
-  if(session){
   return (
     
     <>
@@ -13,12 +10,6 @@ function page() {
       </div>
     </>
   )
-  }
-
-  else
-  {
-    router.push('/')
-  }
 }
 
 export default page
