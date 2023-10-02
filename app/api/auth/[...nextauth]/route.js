@@ -28,6 +28,11 @@ export const authOptions  = {
                 }
             }),
     ],
+    pages: {
+        signIn: "/",
+        // error: '/auth/error',
+        // signOut: '/auth/signout'
+      },
     callbacks:
     {
         jwt(params){

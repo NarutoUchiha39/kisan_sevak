@@ -3,15 +3,25 @@ import { NextRequest, NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    return NextResponse.rewrite(new URL("/", req.url));
+    let url = new URL("/", req.url)
+    console.log(url)
+    return NextResponse.rewrite(new URL("/Home", req.url));
   },
   {
     callbacks: {
       authorized({ token }) {
-        return token?.role === "Expert";
+        let res = token?.role === "Expert";
+        return res
       },
     },
-  }
+  },
+  
 );
 
-export const config = { matcher: ["/Home", "/Reply/:path*","/WriteReply/:path*"] };
+export const config = {
+     matcher: ["/Home", "/Reply/:path*","/WriteReply/:path*"],
+     pages: {
+        signIn: "/",
+      },
+    
+    };

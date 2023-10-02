@@ -5,8 +5,9 @@ import styles from '@/CSS/NavBar.module.css'
 import { useRouter } from 'next/navigation'
 function Navbar() {
   let router = useRouter()
-    async function logout(){
+    function logout(){
         sessionStorage.clear()
+        sessionStorage.authenticated = false
         caches.keys().then((names) => {
           names.forEach((name) => {
               caches.delete(name);
