@@ -11,3 +11,9 @@
 /* .leaflet-tile-container {
     display: none;
   }  */
+  .leaflet-interactive
+  {
+    stroke-width: 2;
+    fill: none;
+    
+  }
