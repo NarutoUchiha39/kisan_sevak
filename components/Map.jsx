@@ -8,17 +8,17 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import React from 'react'
 import { Icon } from 'leaflet'
 function Map(props) {
-    const indiaBounds = [
-        [6.745, 68.162],
-        [35.501, 97.395]
-      ];
+    // const indiaBounds = [
+    //     [6.745, 68.162],
+    //     [40.501, 97.395]
+    //   ];
 
       const customIcon = new Icon({
         iconUrl:"https://cdn-icons-png.flaticon.com/512/684/684908.png",
         iconSize:[30,30]
       })
   return (
-    <MapContainer center={[20.5937, 78.9629]} zoom={5} maxBounds={indiaBounds}> 
+    <MapContainer center={[20.5937, 78.9629]} zoom={5}> 
         <TileLayer url='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png'/>
         <MarkerClusterGroup 
         chunkedLoading>
