@@ -1,8 +1,7 @@
 "use client"
 import dynamic from 'next/dynamic'
 import React from 'react'
-const Maps = dynamic(()=>import('@/components/Maps'),{ssr:false})
-import Map from '@/components/Map'
+const Map = dynamic(()=>import('@/components/Map'),{ssr:false})
 function page() {
   return (
     <div>
