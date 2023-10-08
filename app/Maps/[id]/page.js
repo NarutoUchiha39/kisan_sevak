@@ -3,10 +3,11 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import { useParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
-const Map = dynamic(()=>import('@/components/Map'),{ssr:false})
+import { useGlobalContext } from '@/app/Context/store'
+const Maps = dynamic(()=>import('@/components/Map'),{ssr:false})
 
 function page() {
-  const[map,setMap] = useState([])
+  const {setMap} = useGlobalContext()
   const {id}  = useParams() 
     useEffect(()=>{
         async function fetch_retailers(){ 
@@ -15,7 +16,7 @@ function page() {
             method:"GET"
           })
           const res = await retailer.json()
-          setMap(()=>({
+          setMap((map)=>({
             ...map,...res
           }))
 
@@ -26,7 +27,7 @@ function page() {
       },[])
   return (
     <div>
-            <Map map={map}/>
+            <Maps/>
     </div>
   )
 }

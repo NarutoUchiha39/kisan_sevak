@@ -12,7 +12,9 @@ const GlobalContext = createContext(
         color:"#36d7b7",
         setColor:()=>'',
         Error:{notification:null,message:null},
-        setError:()=>''
+        setError:()=>'',
+        map:null,
+        setMap:()=>''
     }
 )
 export const GlobalContextProvider = ({children}) =>{
@@ -20,10 +22,11 @@ export const GlobalContextProvider = ({children}) =>{
     const [status,setStatus] = useState({status:"All"})
     const [Spinner,setSpinner] = useState(false)
     const [color, setColor] = useState("#36d7b7");
+    const[map,setMap] = useState([])
     const [Error,setError] = useState({notification:null,message:null});
     
     return (
-        <GlobalContext.Provider value={{Spinner,data,setData,status,setStatus,setSpinner,color,setColor,Error,setError}}>
+        <GlobalContext.Provider value={{Spinner,data,setData,status,setStatus,setSpinner,color,setColor,Error,setError,map,setMap}}>
             {children}
         </GlobalContext.Provider>
     )
