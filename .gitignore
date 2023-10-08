@@ -33,6 +33,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-public/GBR.geo.json
 .gitignore
-public/IndiaBoundary.geojson
